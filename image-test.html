@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-container {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        img {
+            max-width: 300px;
+            border: 2px solid #ddd;
+            margin: 10px;
+        }
+
+        .path {
+            color: #666;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Loading Test</h1>
+
+    <div class="test-container">
+        <h2>Test 1: Premium Briefcase Front</h2>
+        <p class="path">Path: Image/premium_leather_briefcase_front.png</p>
+        <img src="Image/premium_leather_briefcase_front.png" alt="Briefcase Front"
+            onerror="this.style.border='2px solid red'; this.alt='FAILED TO LOAD'">
+    </div>
+
+    <div class="test-container">
+        <h2>Test 2: Premium Briefcase Side</h2>
+        <p class="path">Path: Image/premium_leather_briefcase_side.png</p>
+        <img src="Image/premium_leather_briefcase_side.png" alt="Briefcase Side"
+            onerror="this.style.border='2px solid red'; this.alt='FAILED TO LOAD'">
+    </div>
+
+    <div class="test-container">
+        <h2>Test 3: Peggy Tan Bag Front</h2>
+        <p class="path">Path: Image/peggy_tan_leather_bag_front.png</p>
+        <img src="Image/peggy_tan_leather_bag_front.png" alt="Peggy Front"
+            onerror="this.style.border='2px solid red'; this.alt='FAILED TO LOAD'">
+    </div>
+
+    <div class="test-container">
+        <h2>Test 4: Placeholder SVG</h2>
+        <p class="path">Path: Image/placeholder.svg</p>
+        <img src="Image/placeholder.svg" alt="Placeholder"
+            onerror="this.style.border='2px solid red'; this.alt='FAILED TO LOAD'">
+    </div>
+
+    <script>
+        // Log any image loading errors to console
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function () {
+                console.error('Failed to load:', this.src);
+            });
+            img.addEventListener('load', function () {
+                console.log('Successfully loaded:', this.src);
+            });
+        });
+    </script>
+</body>
+
+</html>
